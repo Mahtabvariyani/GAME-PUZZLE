@@ -139,9 +139,10 @@ function dragDrop() {
 }
 let turnbtn = document.getElementById("turns");
 function MaxTurn() {
-  if (turns >= 30) {
+  if (turns >= 35) {
     turnbtn.style.backgroundColor = "#c765a2";
-    CustomAlert(".You made more than 30 moves.", "Game Over!");
+    CustomAlert(".You made more than 30 moves.", "Game Over!"); 
+   /*  window.location.href='./GameOver/html.html'; */
   }
 }
 
@@ -192,7 +193,7 @@ function CustomAlert(message, title,) {
     }
     document.getElementById("dialogboxbody").innerHTML = message;
     document.getElementById("dialogboxfoot").innerHTML =
-      '<button class="pure-material-button-contained active" onclick="refreshPage()">Refresh</button>';
+      '<button class="pure-material-button-contained active" onclick="refreshPage()">Ok</button>';
   };
 
   this.ok = function () {
@@ -202,6 +203,7 @@ function CustomAlert(message, title,) {
   this.alert(message, title);
 }
 
-function refreshPage() {
-  window.location.reload();
+ function refreshPage() {
+  window.location.href='./GameOver/html.html';
 }
+ 

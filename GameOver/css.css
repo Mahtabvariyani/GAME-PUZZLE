@@ -1,0 +1,111 @@
+/* body {
+    background-color: rgb(15, 74, 15);
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-image: url(./hh.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; 
+    height: 100vh; 
+    margin: 0 auto ; 
+  }
+  
+  div {
+    font-size: 50px;
+    text-align: center;
+    color: black;
+    font-weight: bolder;
+  }
+  
+  html, body {
+    height: 90%;
+  }
+ */
+
+/* -------------------- */
+
+@import url("https://fonts.googleapis.com/css?family=Lato:100&display=swap");
+
+body,
+html {
+  height: 100vh;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  background-image: url(./hh.jpg);
+
+  font-family: "Lato", sans-serif;
+}
+
+.container {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  width: 180px;
+  height: 60px;
+  position: absolute;
+  border-radius: 22px;
+}
+.center:hover {
+  box-shadow: 0 0 80px rgba(246, 248, 204, 0.984);
+}
+
+.btn {
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #4c5761;
+  outline: none;
+  transition: 1s ease-in-out;
+  border-radius: 22px;
+}
+
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: transparent;
+  border-radius: 22px;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+
+.btn:hover {
+  transition: 1s ease-in-out;
+  background: transparent;
+  box-shadow: 0 0 80px rgb(246, 247, 219);
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+}
+
+.btn:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.btn span {
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-weight: 100;
+}
+.ball {
+  position: absolute;
+  border-radius: 100%;
+  opacity: 0.8;
+  box-shadow: 1px 1px 4px 4px rgba(204, 245, 231, 0.5);
+}

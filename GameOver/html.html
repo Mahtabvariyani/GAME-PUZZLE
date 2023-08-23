@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css.css">
+    
+    <title>GameOver</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="center">
+          <button class="btn" onclick="refreshPage()">
+            <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+              <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+              <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+            </svg>
+            <span class="some"  >Play Again???</span>
+          </button>
+        </div>
+      </div>
+
+
+<script>
+    
+const colors = ["#FBDF2C", "#FB2C74", "#68fcc6", "#FFD92E", "#F95AEF"];
+
+const numBalls = 60;
+const balls = [];
+
+for (let i = 0; i < numBalls; i++) {
+  let ball = document.createElement("div");
+  ball.classList.add("ball");
+  ball.style.background = colors[Math.floor(Math.random() * colors.length)];
+  ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+  ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+  ball.style.transform = `scale(${Math.random()})`;
+  ball.style.width = `${Math.random()}em`;
+  ball.style.height = ball.style.width;
+
+  balls.push(ball);
+  document.body.append(ball);
+}
+
+// Keyframes
+balls.forEach((el, i, ra) => {
+  let to = {
+    x: Math.random() * (i % 2 === 0 ? -11 : 11),
+    y: Math.random() * 12,
+  };
+
+  let anim = el.animate(
+    [
+      { transform: "translate(0, 0)" },
+      { transform: `translate(${to.x}rem, ${to.y}rem)` },
+    ],
+    {
+      duration: (Math.random() + 1) * 2000,
+      direction: "alternate",
+      fill: "both",
+      iterations: Infinity,
+      easing: "ease-in-out",
+    }
+  );
+});
+
+
+function refreshPage() {
+  window.location.href='../startFile/Srart.html';
+}
+ 
+</script>
+
+</body>
+</html>
