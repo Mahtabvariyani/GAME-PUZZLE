@@ -12,9 +12,9 @@ function play() {
   }
 }
 
-const colors = ["#FBDF2C", "#FB2C74", "#2CD5FB", "#FFD92E", "#F95AEF"];
+const colors = ["#FBDF2C", "#FB2C74", "#68fcc6", "#FFD92E", "#F95AEF"];
 
-const numBalls = 30;
+const numBalls = 40;
 const balls = [];
 
 for (let i = 0; i < numBalls; i++) {

@@ -5,7 +5,7 @@
 body {
   text-align: center;
   background-image: linear-gradient(rgba(65, 64, 64, 0.139), rgba(1, 2, 1, 1.3)),
-    url(./IconBackground/train.jpeg);
+    url(./IconBackground/wallpaperflare.com_wallpaper.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -15,8 +15,8 @@ body {
 .ball {
   position: absolute;
   border-radius: 100%;
-  opacity: 0.6;
-  box-shadow: 1px 1px 7px 7px rgba(193, 242, 226, 0.606);
+  opacity: 0.8;
+  box-shadow: 1px 1px 4px 4px rgba(193, 242, 226, 0.606);
 }
 
 nav {
