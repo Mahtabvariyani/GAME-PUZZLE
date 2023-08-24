@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Picture Puzzle Game
 This is a simple puzzle game that lets you solve a jigsaw puzzle with Avengers-themed images. The game is built using HTML, CSS, and JavaScript.
 
@@ -16,3 +17,6 @@ This is a simple project meant for Practice JavaScript and CSS.
 
 Credits
 This puzzle game is developed using HTML, CSS, and JavaScript.
+=======
+# Project__PuZzZle
+>>>>>>> 6b7fe49e034bed173ae422c129a7fa611fae8bb1
