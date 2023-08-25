@@ -1,3 +1,5 @@
+//========================================================Audio
+
 let audio = document.getElementById("audio");
 let playbtn = document.getElementById("playBtn");
 let count = 0;
@@ -10,65 +12,65 @@ function play() {
     count = 0;
     audio.pause();
   }
+
+  //================================================SmallB Animation
+}class Ball {
+  constructor(colors) {
+    this.colors = colors;
+    this.element = document.createElement("div");
+    this.element.classList.add("ball");
+    this.element.style.background = this.getRandomColor();
+    this.element.style.left = `${Math.floor(Math.random() * 100)}vw`;
+    this.element.style.top = `${Math.floor(Math.random() * 100)}vh`;
+    this.element.style.transform = `scale(${Math.random()})`;
+    this.element.style.width = `${Math.random()}em`;
+    this.element.style.height = this.element.style.width;
+    document.body.append(this.element);
+    this.animate();
+  }
+
+  getRandomColor() {
+    return this.colors[Math.floor(Math.random() * this.colors.length)];
+  }
+
+  animate() {
+    let to = {
+      x: Math.random() * (Math.random() > 0.5 ? -11 : 11),
+      y: Math.random() * 12,
+    };
+
+    this.element.animate(
+      [
+        { transform: "translate(0, 0)" },
+        { transform: `translate(${to.x}rem, ${to.y}rem)` },
+      ],
+      {
+        duration: (Math.random() + 1) * 2000,
+        direction: "alternate",
+        fill: "both",
+        iterations: Infinity,
+        easing: "ease-in-out",
+      }
+    );
+  }
 }
 
 const colors = ["#FBDF2C", "#FB2C74", "#68fcc6", "#FFD92E", "#F95AEF"];
-
 const numBalls = 40;
 const balls = [];
 
 for (let i = 0; i < numBalls; i++) {
-  let ball = document.createElement("div");
-  ball.classList.add("ball");
-  ball.style.background = colors[Math.floor(Math.random() * colors.length)];
-  ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
-  ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
-  ball.style.transform = `scale(${Math.random()})`;
-  ball.style.width = `${Math.random()}em`;
-  ball.style.height = ball.style.width;
-
-  balls.push(ball);
-  document.body.append(ball);
+  balls.push(new Ball(colors));
 }
 
-// Keyframes
-balls.forEach((el, i, ra) => {
-  let to = {
-    x: Math.random() * (i % 2 === 0 ? -11 : 11),
-    y: Math.random() * 12,
-  };
+//==========================================================================Board 
+let rows = 5;
+let columns = 5;
 
-  let anim = el.animate(
-    [
-      { transform: "translate(0, 0)" },
-      { transform: `translate(${to.x}rem, ${to.y}rem)` },
-    ],
-    {
-      duration: (Math.random() + 1) * 2000,
-      direction: "alternate",
-      fill: "both",
-      iterations: Infinity,
-      easing: "ease-in-out",
-    }
-  );
-});
+let currTile;
+let otherTile;
 
-/* function Notice(){
-    alert("Game Rules"+
-    ":You have Maximum Of 30 Moves to Fix the PuZzle!!!"
-    
-    )
-};
-Notice()  
-   */
-
-var rows = 5;
-var columns = 5;
-
-var currTile;
-var otherTile;
-
-var turns = 0;
+let turns = 0;
 
 window.onload = function () {
   for (let r = 0; r < rows; r++) {
@@ -91,7 +93,7 @@ window.onload = function () {
     }
   }
 
-  //pieces
+  //==========================================================================Pieces 
   let pieces = [];
   for (let i = 1; i <= rows * columns; i++) {
     pieces.push(i.toString());
@@ -119,7 +121,7 @@ window.onload = function () {
     document.getElementById("gall").append(tile);
   }
 };
-
+//==========================================================================DragDrop Function
 function dragStart() {
   currTile = this;
 }
@@ -138,11 +140,12 @@ function dragDrop() {
   otherTile = this;
 }
 let turnbtn = document.getElementById("turns");
+let smallTag = document.getElementsByTagName("figcaption");
 function MaxTurn() {
   if (turns >= 35) {
     turnbtn.style.backgroundColor = "#c765a2";
-    CustomAlert(".You made more than 30 moves.", "Game Over!"); 
-   /*  window.location.href='./GameOver/html.html'; */
+    CustomAlert(".You made more than 30 moves.", "Game Over!");
+    /*  window.location.href='./GameOver/html.html'; */
   }
 }
 
@@ -164,8 +167,9 @@ function dragEnd() {
   MaxTurn();
 }
 
-//____________________
-function CustomAlert(message, title,) {
+
+//==========================================================================Buttons
+function CustomAlert(message, title) {
   console.log("triggered");
   this.alert = function (message, title) {
     document.body.innerHTML =
@@ -203,9 +207,9 @@ function CustomAlert(message, title,) {
   this.alert(message, title);
 }
 
- function refreshPage() {
-  window.location.href='../GameOver/html.html';
+function refreshPage() {
+  window.location.href = "../GameOver/html.html";
 }
- function wanna(){
+function wanna() {
   window.location.reload();
- }
+}
